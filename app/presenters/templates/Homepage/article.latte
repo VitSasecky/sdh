@@ -1,0 +1,49 @@
+{block mainContent}
+    <div class="col_w960">
+        {ifset $mainArticle}
+            <div class="col_w450 lp_box float_l" style="height: 500px; position: absolute; padding-right:10px;">
+                <h2 style="padding-left:10px;color:#252767;"><u>{$mainArticle->getTitle()}</u></h2>
+                <p>{$mainArticle->getContent()|trim|truncate:750|noescape|firstUpper}</p>
+                <p><a n:href="Section:news $mainArticle->getId()"><b>Zobrazit celý článek</b></a></p>
+                <hr>
+                <span style="float:left;">
+                    {include '../components/paginator.latte'
+                    , items => $articles
+                    , presenter=> 'Homepage'
+                    , action =>'default'
+                    , paginatorDesc => null}
+                </span>
+            </div>
+        {/ifset $mainArticle}
+    </div>
+
+    <div class="col_w400 float_r" style="float: right; padding-left: 10px;">
+        {include ../components/sdhPosts.latte}
+        <hr>
+        <span style="float: right; padding: 15px; margin-right:80px;">
+   {include ../components/visits.latte}
+        </span>
+    </div>
+
+    <div class="col_w450 float_r" style="float: right;">
+        <!--    <div style="padding: 10px">
+                <div class="fb-like" data-href="http://sdh.babiceurican.cz/" data-layout="button" data-action="like"
+                     data-show-faces="true" data-share="true"></div>
+                <div class="g-plus" data-action="share" data-annotation="none" data-href="http://sdh.babiceurican.cz/"
+                     style="float: left; padding-left: 10px; padding-right: 10px; padding-top: 5px;">
+                    <a></a>
+                </div>
+            </div>-->
+        {include ../components/menuGroup.latte}
+        <div class="SDH">
+            {include ../components/info.latte}
+        </div>
+        <div class="RSS">
+            {include ../components/rss.latte}
+        </div>
+        <hr>
+        {include ../components/progression.latte}
+    </div>
+
+
+{/block}

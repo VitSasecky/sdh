@@ -1,0 +1,139 @@
+{* todo predelat do modelu*/*}
+{var $city = array(
+'ALT' => 'obec Babice - oficiální homepage',
+'IMAGE'=> $basePath.'/images/sdh/znakObec2.png',
+'URL' =>'http://babiceurican.cz'
+)}
+
+{var $rajce = array(
+'ALT' =>  'Rajce.idnes.cz - fotogalerie SDH babice',
+'IMAGE'=>$basePath.'/images/rajce.png',
+'URL' =>'http://babicesdh.rajce.idnes.cz')}
+
+{var $facebook = array(
+'ALT' => 'Facebook - SDH Babice',
+'IMAGE'=> $basePath.'/images/fb.png',
+'URL'=>'https://www.facebook.com/SDH-Babice-112011152581162')}
+
+{var $userProperty = array(
+'ALT' =>  'Regisrace nového uživatele',
+'IMAGE'=> $basePath.'/images/add_user.png',
+'LINK' =>'Section:addUser')
+}
+
+{*cele menu, které je komplexne klikatelné, obsahuje i login*}
+<div class="app-bar darcula" style="background: #252767;">
+    <a class="app-bar-element">
+        <span id="toggle-tiles-dropdown" class="mif-apps mif-2x"></span>
+        <form action="index.php" method="post">
+            <div class="app-bar-drop-container"
+                 data-role="dropdown"
+                 data-toggle-element="#toggle-tiles-dropdown"
+                 data-no-close="false" style="width: 324px;">
+
+                <div class="tile-small bg-red">
+                    <div class="tile-content iconic" onclick="window.location.href='{link $userProperty['LINK']}'">
+                        <img src="{$userProperty['IMAGE']}" alt="{$userProperty['ALT']|trim|firstUpper}"
+                             class="icon mif-user"/>
+                    </div>
+                </div>
+                <div class="tile-container bg-white">
+
+                    <div class="tile-small bg-cyan">
+                        <div class="tile-content iconic" onclick="window.open({$rajce['URL']},'_blank')">
+                            <img src="{$rajce['IMAGE']}" alt="{$rajce['ALT']|trim|firstUpper}"/>
+                        </div>
+                    </div>
+                    <div class="tile-small bg-yellow">
+                        <div class="tile-content iconic" onclick="window.open({$city['URL']},'_blank')">
+                            <img src="{$city['IMAGE']}" class="tile-content iconic" alt="{$city['ALT']|firstUpper}"/>
+                        </div>
+                    </div>
+                    <div class="tile-small bg-white">
+                        <div onclick="window.open({$facebook['URL']},'_blank')">
+                            <img class="icon mif-facebook" alt="{$facebook['ALT']|trim|firstUpper}"
+                                 src= {$facebook['IMAGE']}/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </a>
+
+    <span class="app-bar-divider"></span>
+    <ul class="app-bar-menu">
+        <li><a n:href="Homepage:default">Domů</a></li>
+        <li>
+            <a href="" class="dropdown-toggle">Sbor</a>
+            <ul class="d-menu" data-role="dropdown">
+                <!--<li><a n:href="Section:ourInformation">Hasiči informují</a></li>-->
+                <li><a n:href="Section:history">Historie</a></li>
+                <li><a n:href="Section:cups">Poháry</a></li>
+                <li><a n:href="Unit:default">Členové, jednotka</a></li>
+                <li><a n:href="Section:technology">Technika</a></li>
+                <!--<li><a href="" class="dropdown-toggle">Soutěže</a>
+                    <ul class="d-menu" data-role="dropdown">
+                        <li><a href="">2013</a></li>
+                        <li><a href="">2014</a></li>
+                        <li><a href="">2015</a></li>
+                    </ul>
+                </li>-->
+            </ul>
+        </li>
+        <li><a n:href="Section:newsList">Novinky</a></li>
+        <li><a href="#" class="dropdown-toggle">Archiv</a>
+            <ul class="d-menu" data-role="dropdown">
+                <li><a href="">2015</a></li>
+                <li><a href="">2016</a></li>
+            </ul>
+        </li>
+        <li><a n:href="Section:gallery">Galerie</a></li>
+
+        <li>
+            <a href="" class="dropdown-toggle">Ostatní</a>
+            <ul class="d-menu" data-role="dropdown">
+                <li><a n:href="Other:documents">Dokumenty</a></li>
+                <li><a n:href="Section:references">Odkazy</a></li>
+                <li><a n:href="Other:sponsor">Sponzoring</a></li>
+                <li><a n:href="Other:florian">Svatý florián</a></li>
+                <li><a n:href="Other:designation">Označení funkcionářů</a></li>
+
+
+                <li class="divider"></li>
+                <li><a href="" class="dropdown-toggle">Kontakt</a>
+                    <ul class="d-menu" data-role="dropdown">
+                        <li><a n:href="Contact:admin">Webmaster</a></li>
+                        <li><a n:href="Contact:commander">Velitel</a></li>
+                        <li><a n:href="Contact:unity">Jednotka SDH</a></li>
+                    </ul>
+                </li>
+
+                <li class="divider"></li>
+                <li><a href="" class="dropdown-toggle">Zajímavosti</a>
+                    <ul class="d-menu" data-role="dropdown">
+                        <li><a n:href="Other:extinguishers">Hasící přístroje - popis</a></li>
+                        <li><a n:href="Other:effectiveness">Hasící přístroje - efektivita</a></li>
+                        <li><a n:href="Other:fire">Hašení požárů</a></li>
+                        <li><a n:href="Other:nodes">Vázání uzlů</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div class="app-bar-element place-right">
+        {if !$user->isLoggedIn()}
+            <a class="dropdown-toggle fg-white" style='margin-right:50px;'>
+                <b><u id="signButton">Přihlásit</u></b></a>
+            <div class="app-bar-drop-container bg-white fg-dark place-right" style="width: 250px; height: 250px;"
+                 data-role="dropdown" data-no-close="true">
+                <div class="padding20">
+                    <h4 align="center" class="text-light">Přihlášení</h4
+                    <span class="mif-user prepend-icon" style='float:right; margin-top:-25px;'></span>
+                    {control signForm}
+                </div>
+            </div>
+        {/if}
+    </div>
+</div>
+
+

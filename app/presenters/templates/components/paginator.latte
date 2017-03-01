@@ -1,0 +1,41 @@
+{* Strankovac *}
+{block paginator}
+    <nav>
+        {default $page = $previousPage}
+        {default $i =0}
+        {*default $maxPages = $previousPage + 2 + 2*}
+
+        <ul class="pagination">
+            {for $page = $previousPage; $page<=$countPages; $page++}
+                {continueIf $page <=0}
+                {*breakIf $page > $maxPages*}
+                <li>
+                    {if $page == $previousPage}
+                        <a n:href="{$presenter}:{$action} $previousPage" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+
+                    {elseif $page == $currentPage}
+                        <a href="#" style="background-color: #d3d3d3;">{$page}</a>
+                    {elseif $page == $countPages}
+                        <a n:href="{$presenter}:{$action} $nextPage" aria-label="Previous">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    {else}
+                    {php $i++}
+                    {continueIf $i >=1} {* povoli max 2 tlacitka, maknec jedno protoze paginator next podminka*}
+                        <a n:href="{$presenter}:{$action} $page">{$page}</a>
+                    {/if}
+                </li>
+            {/for}
+
+        </ul>
+
+
+    </nav>
+    {ifset $paginatorDesc}
+        <span style="float: right; font-style: italic;">
+            {$firstPageItem} - {$lastPageItem} z {$countItems} položek
+        </span>
+    {/ifset}
+{/block}

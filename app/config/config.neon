@@ -1,0 +1,224 @@
+# WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+# https://nette.org/security-warning
+extensions:
+    console: Kdyby\Console\DI\ConsoleExtension
+    events: Kdyby\Events\DI\EventsExtension
+    annotations: Kdyby\Annotations\DI\AnnotationsExtension
+    doctrine: Kdyby\Doctrine\DI\OrmExtension
+doctrine:
+    user: root
+    password: klokan55
+    dbname: sdh
+    metadata:
+        App: %appDir%
+    orm:
+     dql:
+         datetime_functions:
+             convert_tz: DoctrineExtensions\Query\Mysql\ConvertTz
+             date: DoctrineExtensions\Query\Mysql\Date
+             date_format: DoctrineExtensions\Query\Mysql\DateFormat
+             dateadd: DoctrineExtensions\Query\Mysql\DateAdd
+             datesub: DoctrineExtensions\Query\Mysql\DateSub
+             datediff: DoctrineExtensions\Query\Mysql\DateDiff
+             day: DoctrineExtensions\Query\Mysql\Day
+             dayname: DoctrineExtensions\Query\Mysql\DayName
+             dayofweek: DoctrineExtensions\Query\Mysql\DayOfWeek
+             dayofyear: DoctrineExtensions\Query\Mysql\DayOfYear
+             div: DoctrineExtensions\Query\Mysql\Div
+             from_unixtime: DoctrineExtensions\Query\Mysql\FromUnixtime
+             hour: DoctrineExtensions\Query\Mysql\Hour
+             last_day: DoctrineExtensions\Query\Mysql\LastDay
+             minute: DoctrineExtensions\Query\Mysql\Minute
+             now: DoctrineExtensions\Query\Mysql\Now
+             month: DoctrineExtensions\Query\Mysql\Month
+             monthname: DoctrineExtensions\Query\Mysql\MonthName
+             second: DoctrineExtensions\Query\Mysql\Second
+             strtodate: DoctrineExtensions\Query\Mysql\StrToDate
+             time: DoctrineExtensions\Query\Mysql\Time
+             timediff: DoctrineExtensions\Query\Mysql\TimeDiff
+             timestampadd: DoctrineExtensions\Query\Mysql\TimestampAdd
+             timestampdiff: DoctrineExtensions\Query\Mysql\TimestampDiff
+             timetosec: DoctrineExtensions\Query\Mysql\TimeToSec
+             week: DoctrineExtensions\Query\Mysql\Week
+             weekday: DoctrineExtensions\Query\Mysql\WeekDay
+             year: DoctrineExtensions\Query\Mysql\Year
+             yearweek: DoctrineExtensions\Query\Mysql\YearWeek
+             unix_timestamp: DoctrineExtensions\Query\Mysql\UnixTimestamp
+
+         numeric_functions:
+             acos: DoctrineExtensions\Query\Mysql\Acos
+             asin: DoctrineExtensions\Query\Mysql\Asin
+             atan2: DoctrineExtensions\Query\Mysql\Atan2
+             atan: DoctrineExtensions\Query\Mysql\Atan
+             bit_count: DoctrineExtensions\Query\Mysql\BitCount
+             bit_xor: DoctrineExtensions\Query\Mysql\BitXor
+             ceil: DoctrineExtensions\Query\Mysql\Ceil
+             cos: DoctrineExtensions\Query\Mysql\Cos
+             cot: DoctrineExtensions\Query\Mysql\Cot
+             degrees: DoctrineExtensions\Query\Mysql\Degrees
+             floor: DoctrineExtensions\Query\Mysql\Floor
+             log10: DoctrineExtensions\Query\Mysql\Log10
+             pi: DoctrineExtensions\Query\Mysql\Pi
+             power: DoctrineExtensions\Query\Mysql\Power
+             quarter: DoctrineExtensions\Query\Mysql\Quarter
+             radians: DoctrineExtensions\Query\Mysql\Radians
+             rand: DoctrineExtensions\Query\Mysql\Rand
+             round: DoctrineExtensions\Query\Mysql\Round
+             stddev: DoctrineExtensions\Query\Mysql\StdDev
+             sin: DoctrineExtensions\Query\Mysql\Sin
+             std: DoctrineExtensions\Query\Mysql\Std
+             tan: DoctrineExtensions\Query\Mysql\Tan
+             variance: DoctrineExtensions\Query\Mysql\Variance
+
+         string_functions:
+             ascii: DoctrineExtensions\Query\Mysql\Ascii
+             binary: DoctrineExtensions\Query\Mysql\Binary
+             char_length: DoctrineExtensions\Query\Mysql\CharLength
+             concat_ws: DoctrineExtensions\Query\Mysql\ConcatWs
+             countif: DoctrineExtensions\Query\Mysql\CountIf
+             crc32: DoctrineExtensions\Query\Mysql\Crc32
+             degrees: DoctrineExtensions\Query\Mysql\Degrees
+             field: DoctrineExtensions\Query\Mysql\Field
+             find_in_set: DoctrineExtensions\Query\Mysql\FindInSet
+             greatest: DoctrineExtensions\Query\Mysql\Greatest
+             group_concat: DoctrineExtensions\Query\Mysql\GroupConcat
+             ifelse: DoctrineExtensions\Query\Mysql\IfElse
+             ifnull: DoctrineExtensions\Query\Mysql\IfNull
+             least: DoctrineExtensions\Query\Mysql\Least
+             lpad: DoctrineExtensions\Query\Mysql\Lpad
+             match: DoctrineExtensions\Query\Mysql\MatchAgainst
+             md5: DoctrineExtensions\Query\Mysql\Md5
+             nullif: DoctrineExtensions\Query\Mysql\NullIf
+             radians: DoctrineExtensions\Query\Mysql\Radians
+             regexp: DoctrineExtensions\Query\Mysql\Regexp
+             replace: DoctrineExtensions\Query\Mysql\Replace
+             rpad: DoctrineExtensions\Query\Mysql\Rpad
+             sha1: DoctrineExtensions\Query\Mysql\Sha1
+             sha2: DoctrineExtensions\Query\Mysql\Sha2
+             soundex: DoctrineExtensions\Query\Mysql\Soundex
+             str_to_date: DoctrineExtensions\Query\Mysql\StrToDate
+             substring_index: DoctrineExtensions\Query\Mysql\SubstringIndex
+             uuid_short: DoctrineExtensions\Query\Mysql\UuidShort
+             hex: DoctrineExtensions\Query\Mysql\Hex
+             unhex: DoctrineExtensions\Query\Mysql\Unhex
+parameters:
+    sdh:
+       mainTitle: 'Sbor dobrovolných hasičů Babice'
+       otherTitles: #titulkay webových page
+                'Contact': 
+                    'admin': 'Kontaktní formulář - administrátor webu'
+                    'commander': 'Kontaktní formulář - velitel'
+                    'unity': 'Kontaktní formulář - pro členy SDH'
+                'Other':
+                    'documents': 'Dokumenty'
+                    'fire': 'Hašení požárů'
+                    'nodes': 'Vázání uzlů'
+                    'sponsor': 'Sponzoring'
+                    'florian': 'Svatý Florián'
+                    'designation': 'Označení funkcionářů SH ČMS'
+                    'extinguishers': 'Hasící přístroje'
+                    'effectiveness': Efektivita hasících přístrojů
+                'Section':
+                    'unity': 'Jednotka'
+                    'news': 'Novinky'
+                    'references': 'Odkazy'
+                    'technology': 'Technika'
+                    'history': 'Historie'
+                    'archive': 'Archiv'
+                    'gallery': 'Galerie'
+                    'cups': 'Pohárová umístění'
+                    'ourInformation': 'Hasiči informují'
+                    'addUser': 'Registrace nového uživatele'
+                'Summary':
+                    'newsletters': 'Odebírání zpráv'
+                    'deleteAccount': 'Odebírání zpráv'
+                    'createEvent': 'Vytvořit událost'
+                    'visits': 'Návštěvnost'
+                    'activity': 'Aktivita'
+                    'statistics': 'Obecné statistiky'
+                    'unit': 'Rozšíření SDH o nové členy'
+                    'account': 'Konfigurace účtu'
+                    'editUsers': 'Uživatelské účty'
+                'UserSection':
+                    'uploadPhoto': 'Upload fotografií'
+                    'uploadDocuments': 'Upload dokumentů'
+                    'uploadArticles': 'Upload článků'
+                    'chat': 'Chat'
+                    'uploadNews': 'Upload stručných novinek'
+                    'downloads': 'Ke stažení'
+                    'events': 'Události'
+       paginator: #paginatory jednotlivych sekci
+           article:
+               itemsPerPage: 30 #pocet clanku v sekce novinky
+           news:
+               itemsPerPage: 15
+           newsList:
+               itemsPerPage: 15
+           document:
+               itemsPerPage: 30 #pocet dokumentu v sekci dokumenty
+           reference:
+               itemsPerPage: 9 #pocet odkazu v sekci odkazy
+           user:
+               itemsPerPage: 15 #pocet uzivatelskyh uctu na strance v sekci uz.ucty
+           event:
+               itemsPerPage: 10 #pocet uzivatelskyh uctu na strance v sekci uz.ucty
+           chat:
+               itemsPerPage: 10 #pocet postu v chatu na 1 strance
+       email: #kontaktní e-maily na administrátora a velitele jednotky
+            admin: 'sadeckyvit@gmail.com'
+            commander: 'rathousky.p@seznam.cz'
+       loader:  #konfiugurace loaderu fotoggrafi├ş a dokument┼»
+           photos:
+               dir: '/mnt/data/accounts/b/babice/data/www/sdh/www/gallery/albums'
+               size: 700
+               quality: 100
+               thumbWidth: 150
+               thumbQuality: 80
+           documents:
+               dir: '/mnt/data/accounts/b/babice/data/www/sdh/www/documents'
+       location:    #SDH lokace
+           posX: '50.009796'
+           posY: '14.718477'
+
+di:  # spousti v ladence panel pro vygenerovane DI
+    debugger: yes
+
+php:
+	date.timezone: Europe/Prague
+
+application:
+	errorPresenter: Error
+	mapping:
+		*: App\Presenters\*Presenter    #namapovani na umisteni presenteru
+
+session:
+	expiration: 14 days                 #expirace sešny za 14 dni
+
+
+services:
+      SdhhModel:
+            class:  App\Model\SdhModel(...,@tracy.logger)
+            setup:
+                - initialize(%sdh%) #provede se vzdy inicializace objekt
+      - App\Model\ChatModel(...,@tracy.logger)
+      - App\Model\CountdownModel(...,@tracy.logger)
+      - App\Model\CounterModel(...,@tracy.logger)
+      - App\Model\EventManager(...,@security.user, @tracy.logger) #tovarnicka, ktera vytvori komponentu pro registraci
+      - App\Forms\UsersFactory
+      - App\Forms\EventFactory          #tovarnicka, ktera vytvari udalosti, ktere se pote zobrazuji v event kalendari
+      - App\Forms\SignFormFactory       #tovarnicka prihlaseni
+      - App\Forms\UnityFactory           #tovarnicka na priddani clena
+      - App\Forms\NewsLetterFactory    #tovarnicka, ktera komponentu na zmenu emailovych notifikaci
+      - App\Forms\AccountFactory    #tovarnicka, ktera komponentu na zmenu emailovych notifikaci
+      - App\Forms\ContactFormFactory    #tovarnicka, ktera vytvori komponentu kontakniho formulare
+      - App\Forms\DocumentUploaderFactory       #tovarnicka, ktera vytvori komponentu pro upload ruznych druhu souboru
+      - App\Forms\PhotoUploaderFactory       #tovarnicka, ktera vytvori komponentu pro upload ruznych druhu souboru
+      - App\Forms\PhotoDownloaderFactory       #tovarnicka, ktera slouzi ke stazeni vybrane knihovny
+      - App\Forms\RegistrationFactory   #tovarnicka, ktera vytvori komponentu pro registraci novych uzivatelu
+      - App\Forms\NewFactory   #tovarnicka, ktera vytvori komponentu pro upload novinek
+      - App\Forms\ArticleFactory   #tovarnicka, ktera vytvori komponentu pro nahravani novych clanku
+      - App\Forms\ChatFactory           #tovarnicka, ktera vytvori komponentu pro vytvoreni chatu
+      - App\Model\Loader(%sdh.loader%)
+      router: App\RouterFactory::createRouter
+      authenticator: App\Model\UserManager
+

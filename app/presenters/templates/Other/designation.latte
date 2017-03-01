@@ -1,0 +1,10 @@
+{var $iconSection = 'images/news.png' }
+{block mainContent}
+    {include ../components/titleHeader.latte}
+    <hr>
+    <div>
+        {for $i = 1; $i < 7; $i++}
+            <p align="center"><img src="{$basePath}/images/designation/{$i}.gif" alt=""></p>
+        {/for}
+    </div>
+{/block}

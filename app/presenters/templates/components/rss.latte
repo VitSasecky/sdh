@@ -1,0 +1,29 @@
+<div class="panel-group" id="accordion">
+    {ifset $rss}
+        {foreach $rss as $info}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        {if $iterator->counter !=1}
+                            {var $index = 'rssCollapse'.$iterator->counter}
+                        {else}
+                            {var $index = 'rssCollapse'}
+                        {/if}
+                        <a data-toggle="collapse" data-parent="#accordion" href="#{$index}"
+                           onMouseOver="this.style.backgroundColor='transparent';this.style.color='#cc0b0d'"
+                           onmouseout="this.style.color='#252767'">
+                            <b>{$info->created|date:'j. n. Y h:i'}</b>| {$info->title}
+                        </a>
+                    </h4>
+                </div>
+                <div id="{$index}" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>{$info->description|truncate:300}</p>
+                        <p align="right"><a href="{$info->url}" target="_blank"><b>Více zde</b></a></p>
+                    </div>
+                </div>
+            </div>
+        {/foreach}
+    {/ifset}
+
+</div>

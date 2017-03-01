@@ -1,0 +1,15 @@
+parameters:
+
+services:
+    #cacheStorage:
+        #class: Nette\Caching\Storages\DevNullStorage
+database:
+	dsn: 'mysql:host=127.0.0.1;dbname=sdhbab'
+	user: sdhbab
+	password: sdhbab15
+doctrine:
+    user: sdhbab
+    password: sdhbab15
+    dbname: sdhbab
+    metadata:
+        App: %appDir%

@@ -1,0 +1,80 @@
+{var $iconSection = 'images/activity.png' }
+{block mainContent}
+    {include ../components/titleHeader.latte}
+    <hr xmlns:n="http://www.w3.org/1999/html">
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <td align="center" width='80px'>Login uživatele</td>
+                <td align="center" width='20px'>Jméno a příjmení</td>
+                <td align="center" width='10px'>Email</td>
+                <td align="center" width='20px'>Typ účtu</td>
+                <td align="center" width='20px'>Změna typu účtu</td>
+                <td align="center" width='20px'>Aktivní</td>
+                <td align="center" width='20px'>Členem</td>
+                <td align="center" width='20px'>Notifikace</td>
+                <td align="center" width='60px'>Vytvořen</td>
+                <td align="right" width='20px'>Akce</td>
+            </tr>
+            </thead>
+
+
+            {var $enabled = 0}
+            {var $disabled = 0}
+
+            {foreach $users as $user}
+                {if $user->getEnabled() ==1}
+                    {var $enabled = $enabled+1}
+                {else}
+                    {var $disabled = $enabled+1}
+                {/if}
+
+                <tr>
+                    <form n:name=editUsersForm {$user->getEmail()} class=form>
+                        <td width="15%">{$user->getLogin()}</td>
+                        <td width="15%">{$user->getFullName()}</td>
+                        <td width="6%"><a href="mailto:{$user->getEmail()}">@</a></td>
+
+
+                        <td>{$roles[$user->getRole()->getId()]}</td>
+                        <td width="20%"><select n:name="id_role"></select></td>
+                        <td align="center" width="2%">
+                            <input type="checkbox" n:name=enabled {if $user->getEnabled() ==1} checked{/if}>
+                        </td>
+                        <td align="center" width="2%">
+                            <input type="checkbox" n:name=membership {if $user->getMemberShip() ==1} checked{/if}>
+                        </td>
+                        <td align="center" width="2%">
+                            <input type="checkbox" n:name=notification {if $user->getNotification() ==1} checked{/if}>
+                        </td>
+                        <td width="10%"> {$user->getCreated()|date:'d.m.Y'}</td>
+                        <td><input n:name=send></td>
+                        <td><input type="hidden" n:name='id_user' value="{$user->getId()}"</td>
+                    </form>
+                </tr>
+            {/foreach}
+        </table>
+        <div>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span class="badge" style="background-color:#252767; font-size:14px;">{$enabled}</span>
+                    celkový počet aktivních účtů
+                </li>
+                <li class="list-group-item">
+                    <span class="badge" style="background-color:#252767; font-size:14px;">{$disabled}</span>
+                    celkový počet neaktivních účtů
+                </li>
+            </ul>
+
+        </div>
+        <div style="text-align: center;">
+            {include '../components/paginator.latte'
+                     , items => $users
+                     , presenter=> 'Summary'
+                     , action =>'editUsers'
+                     ,paginatorDesc => true}
+        </div>
+
+    </div>
+{/block}

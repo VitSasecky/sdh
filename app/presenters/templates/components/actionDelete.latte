@@ -1,0 +1,6 @@
+{block delete}
+{if $role ==1}  <!-- administrator-->
+        <a onclick="deleteItem({$message},  {link $actionLink $id})">
+            <img id="sdh_bin" style="float: right;">
+        </a>
+{/if}

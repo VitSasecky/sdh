@@ -1,0 +1,42 @@
+{var $iconSection = 'images/news.png' }
+{var $title = 'Novinky'}
+{block mainContent}
+    {include ../components/titleHeader.latte}
+    <hr>
+    <div class="container">
+        {ifset $articles}
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Název článku</th>
+                    <th>Založil</th>
+                    <th>Vytvořeno</th>
+                    {if $role ==1}  <!-- administrator-->
+                        <td width='50px'>Odstranit</td>
+                    {/if}
+                </tr>
+                </thead>
+
+                {foreach $articles as $article}
+                    <tr>
+                        <td><a n:href="Section:news $article->id">{$article->title}</a></td>
+                        <td>{$article->author->getFullname()}</td>
+                        <td>{$article->created|date:'d.m.Y H:i:s'}</td>
+                        {var $message = 'Přejete si skutečně odstranit článek: "'.$article->title.'"'}
+                        <td width="5%">
+                            {include ../components/actionDelete.latte
+                        , message => $message, actionLink => 'Section:deleteNew', id=> $article->id}
+                        </td>
+                    </tr>
+                {/foreach}
+            </table>
+            <div style="text-align: center;">
+                {include '../components/paginator.latte'
+                     , items => $articles
+                     , presenter=> 'Section'
+                     , action =>'newslist'
+                     ,paginatorDesc => 'true'}
+            </div>
+        {/ifset $articles}
+    </div>
+{/block}

@@ -1,0 +1,54 @@
+{var $iconSection = 'images/calendar.png' }
+{block mainContent}
+    {include ../components/titleHeader.latte}
+    <hr>
+    <div>
+    </div>
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Název události</th>
+                <th>Kategorie</th>
+                <th>Místo konání</th>
+                <th>Popis události</th>
+                <th>Termín konání</th>
+                <th>Založil</th>
+            </tr>
+            </thead>
+
+            {foreach $events as $event}
+                {if $iterator->first}
+                    {php $type= 'active'}
+                {elseif $now <= $event->getDate()}
+                    {php $type= 'success'}
+                {else}
+                    {php $type= 'danger'}
+                {/if}
+
+                <tr class="{$type}" style="color: #000000;">
+                    <td>{$event->getName()}</td>
+                    <td>{$event->getType()}</td>
+                    <td>{$event->getPlace()}</td>
+                    <td>{$event->getDescription()|truncate: 40}</td>
+                    <td>{$event->getDate()|date:'d.m.Y H:i:s'}</td>
+                    <td>{$event->getAuthor()->getFullname()}</td>
+                    {var $message = 'Přejete si skutečně odstranit událost: "'.$event->name.'"'}
+
+                    <td width="5%">
+                        {include ../components/actionDelete.latte
+                    , message => $message, actionLink => 'Other:deleteEvent', id=> $event->id}
+                    </td>
+                </tr>
+            {/foreach}
+
+        </table>
+        <div style="text-align: center;">
+            {include '../components/paginator.latte'
+                     , items => $events
+                     , presenter=> 'UserSection'
+                     , action =>'events'
+                     ,paginatorDesc => true}
+        </div>
+    </div>
+{/block}

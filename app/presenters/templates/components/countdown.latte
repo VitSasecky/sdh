@@ -1,0 +1,63 @@
+{ifset $countDown}
+    <table style="margin-top: 0;">
+        <tr>
+            <td width="100">
+                <a n:href="Homepage:default">
+                    <img class="sdhLogo" src='{$basePath}/images/sdh/znak.png'/>
+                </a>
+            </td>
+            <td width='500' id='mainLabel' style="font-size: 55px;"><b>SDH BABICE</b></td>
+            <td width="260"></td>
+            <td width='200'></td>
+            <td>
+                {if $eventExist}
+                    <a data-toggle="modal" data-target="#myModal" style="font-size:15px; color:#ffffff;
+                    cursor: pointer;">
+                        {ifset $eventName}{$eventName|trim|firstUpper} - <b>{$eventType|trim|lower}</b>
+                        {else}Události nejsou k dispozici{/ifset}
+                    </a>
+                    <br>
+                    <a data-toggle="modal" data-target="#myModal" style="color:#ffffff; cursor: pointer;">
+                        místo konání: {$eventLocation}
+                    </a>
+                    <br>
+                    <br>
+                    <div class="countdown"
+                         data-role="countdown"
+                         data-days={$countDown->getDays()}
+                         data-hours={$countDown->getHours()}
+                         data-minutes={$countDown->getMinutes()}
+                         data-seconds={$countDown->getSeconds()}
+                         data-background-color="bg_cyan"
+                         data-labels="{'days': 'days', 'hours': 'hours', 'minutes': 'minutes', 'seconds': 'seconds'}">
+                    </div>
+
+                {/if}
+            </td>
+        </tr>
+        <tr></tr>
+    </table>
+{/ifset}
+
+{if $eventExist}
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h5 class="modal-title"><b> Popis události: </b> {$eventName}</h5>
+                </div>
+                <div class="modal-body">
+                    <p>{$description}.</p>
+                </div>
+                <div class="modal-footer">
+                    <span style="float: left;"><b>Vytvořil:</b> {$author}</span>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{/if}

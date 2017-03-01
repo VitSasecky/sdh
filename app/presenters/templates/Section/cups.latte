@@ -1,0 +1,23 @@
+{var $iconSection = 'images/news.png' }
+
+
+{block mainContent}
+    {include ../components/titleHeader.latte}
+    <hr>
+    <div class="container">
+        <p><i>seznam celkových umístění v požárním sportu</i></p>
+        <ul class="list-group">
+            {foreach $cups as $cup}
+                <li class="list-group-item">
+                    {first}<b>{/first}{$cup->place|trim}.místo{first}</b>{/first}
+                    <span class="badge">
+                {if $cup->total != null}
+                    {$cup->total|trim}x
+                {else}
+                    neuvedeno
+                {/if}
+            </span></li>
+            {/foreach}
+        </ul>
+    </div>
+{/block}

@@ -1,0 +1,105 @@
+{var gridoAssetsPath = $baseUri.'/css/grido'}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v3.1.1/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v3.1.1/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet"
+          href="https://cdn.rawgit.com/dangrossman/bootstrap-daterangepicker/v1.3.17/daterangepicker-bs3.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/hyspace/typeahead.js-bootstrap3.less/v0.2.3/typeahead.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/rstacruz/nprogress/v0.1.6/nprogress.css">
+    <link rel="stylesheet" href="{$gridoAssetsPath}/grido.css">
+
+
+    {include components/header.latte} <!-- sablona, ktera definuje kompletni hlavicku vsech webovych stranek-->
+</head>
+<body>
+<div id="tooplate_wrapper">
+    <div id="tooplate_header">
+        <div>
+            {include components/bar.latte}
+            <!-- sablona, ktera definuje hlavni menu stranky, ktere se zobrazuje vsem navstevnikum-->
+            {include components/countdown.latte} <!-- sablona s odpocitavadlem-->
+        </div>  <!-- end of countdown -->
+    </div>  <!-- end of tooplate_header -->
+    <div id="tooplate_main">
+        {foreach $flashes as $flash}
+            {if $flash->type == 'error'}
+                {var notice = 'Varování'}
+                {var $type = 'danger'}
+            {elseif $flash->type == 'warning'}
+                {var notice = 'Upozornění'}
+                {var $type = $flash->type}
+            {elseif $flash->type == 'success'}
+                {var notice = 'Úspěch'}
+                {var $type = $flash->type}
+            {else}
+                {var notice = 'Info'}
+                {var $type = 'info'}
+            {/if}
+
+            <div class="alert alert-{$type} fade in">
+                <a href="#" class="close">&times;</a>
+                <strong>{$notice}:</strong> {$flash->message}
+            </div>
+
+        {/foreach}
+        {include components/userMenu.latte}
+        {include components/photoStrip.latte} <!-- pas fotografii-->
+        <hr style="height: 3px; background-color: #252767;">
+        <div id='mainContent'>
+            {block mainContent}{/block} <!-- sablona, ktera definuje hlavni obsah konkretni stranky-->
+        </div>
+    </div> <!-- end of tooplate_main -->
+    <div id="tooplate_footer">
+        {include components/footer.latte} <!-- sablona, ktera definuje zapati stranky-->
+    </div>
+</div> <!-- end of wrapper -->
+
+
+<!-- end of tooplate_footer -->
+<script src="https://cdn.rawgit.com/moment/moment/2.9.0/moment.js"></script>
+<!-- < script
+src = "https://cdn.rawgit.com/jquery/jquery/1.11.2/dist/jquery.min.js" ></script>
+<script src="https://cdn.rawgit.com/twbs/bootstrap/v3.1.1/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.rawgit.com/nette/forms/v2.2.4/src/assets/netteForms.js"></script>
+-->
+<script src="https://cdn.rawgit.com/dangrossman/bootstrap-daterangepicker/v1.3.19/daterangepicker.js"></script>
+
+
+{var ajax = $presenter->getParameter('ajax') == 'on'}
+<script n:if="$ajax"
+        src="https://cdn.rawgit.com/browserstate/history.js/1.8.0/scripts/bundled/html4+html5/jquery.history.js">
+</script>
+
+
+
+<script n:if="$ajax" src="https://cdn.rawgit.com/twitter/typeahead.js/v0.10.5/dist/typeahead.bundle.min.js"></script>
+<script n:if="$ajax" src="https://cdn.rawgit.com/vojtech-dobes/nette.ajax.js/2.0.0/nette.ajax.js"></script>
+<script n:if="$ajax" src="https://cdn.rawgit.com/rstacruz/nprogress/v0.1.6/nprogress.js"></script>
+<script src="{$gridoAssetsPath}/grido.js"></script>
+<script src="{$gridoAssetsPath}/grido.datepicker.js"></script>
+<script n:if="$ajax" src="{$gridoAssetsPath}/grido.typeahead.js"></script>
+<script n:if="$ajax" src="{$gridoAssetsPath}/grido.history.js"></script>
+<script n:if="$ajax" src="{$gridoAssetsPath}/grido.nette.ajax.js"></script>
+<script n:if="$ajax" src="{$baseUri}/js/main.ajax.js"></script>
+<script n:if="!$ajax" src="{$baseUri}/js/main.js"></script>
+<!-- end of tooplate_footer -->
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/cs_CZ/sdk.js#xfbml=1&amp;version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+<script src="https://apis.google.com/js/platform.js" defer></script>
+
+</body>
+</html>

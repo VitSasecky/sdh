@@ -1,0 +1,34 @@
+{var $iconSection = 'images/book.png' }
+{block mainContent}
+    {*var $history = '<p>Sbor dobrovolných hasičů v Babicích byl založen roku 1924. V současné době má celkem 32 členů ( včetně družstva žen, založeného v roce 2009). Dvanáctičlenná výjezdová jednotka je zařazena IZS ve skupině JPO-V a spadá pod operační středisko v Kolíně. Je povolávana k požárům, živelným pohromám atd.
+                    Každoročně se družstva žen a mužů zúčastňují několika soutěží v požárním sportu.</p><p>
+                    SDH Babice také již tradičně pořádá Den čarodějnic a spolupracuje na různých akcích pro děti.</p>'*}
+
+    {var $history = '
+<p>Historie našeho sboru sahá až do začátku 20.století, poněvadž sbor byl ustaven dne <b>24.4. 1923</b> a činnost zahájil již po necelém roce, ke dni <b>8.4. 1924</b>. <br>V den založení sbor čítal <u>13 aktivních členů.</u>
+Za výzbroj a kroje sbor dobrovolných hasičů tehdy zaplatil 5.701,70 Kč. Městu Nuslím zaslal žádost, aby mu byla prodána již vyřazená stříkačka. Žádosti bylo vyhověno a stříkačka našemu sboru byla prodána za 2.000 Kč.
+<p><b>V polovině 20.století</b>, přesněji dne 23.5. 1951, byl pro požární sbor zakoupen starý nákladní vůz. Požárníci po-té společnou prací „svůj první" vůz opravili, aby sloužil požární ochraně. Vůz byl koupen za 25.000 Kč.</p>
+<p><b>Na začátku 21. století</b>, roku 2009, bylo založeno družstvo žen, které se, stejně jako družstvo mužů, každoročně úspěšně účastní mnoha soutěží již populárního požárního sportu.
+<p>Jednotka je zařazena do jednotného integrovaného záchranného systému České republiky. Sbor každoročně pořádá v obci Den Čarodějnic.
+<br>Díky sponzorským darům a finanční podpoře obce sbor zrekonstruoval bývalý sklad v Hasičském domě, který je nyní využíván nejen sborem, obecními sdruženími a spolky, ale i Obecním úřadem pro veřejná zasedání či volby.
+Následně se kompletně opravila a nastříkala cisterna CAS 25 a vlek na požární stříkačku.
+<br>V roce 2013 se podařilo znovu zprovoznit PS 8 po 25ti leté pauze.</p>'
+}
+
+    {var $today =
+'<p>Současný sbor dobrovolných hasičů čítá k dnešnímu dni celkem
+<b><u>'. $totalMembers .' aktivních členů a stále se rozrůstá.</u></b></p>'
+}
+    {include ../components/titleHeader.latte}
+    <hr>
+    {$history|noescape|trim}
+    <ul>
+         <h4><b>Významné zásahy sboru</b> </h4>
+    </ul>
+    {foreach $fires as $fire}
+        <li style="padding-left: 25px; font-style: italic; font-size: 14px;">{$fire->event}</li>
+
+    {/foreach}
+    <br>
+    {$today|noescape|trim}
+{/block}

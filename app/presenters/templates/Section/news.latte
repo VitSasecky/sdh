@@ -1,0 +1,8 @@
+{var $iconSection = 'images/news.png' }
+{block mainContent}
+    {include ../components/titleHeader.latte}
+    <hr>
+    <div>
+        <p>{$article|trim|noescape|firstUpper}</p>
+    </div>
+{/block}

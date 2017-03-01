@@ -1,0 +1,95 @@
+{if $user->isLoggedIn()}
+    {if $role === 1}
+        {var $titleSection  = 'Sekce administrátora'}
+    {elseif $role=== 2}
+        {var $titleSection  = 'Sekce člena jednotky'}
+    {else}
+        {var $titleSection  = 'Sekce návštěvníka'}
+    {/if}
+    <ul class="m-menu">
+        <li><a href="#">{date('d-m-Y')}</a></li>
+        <li>
+            <a href="#" class="dropdown-toggle">Přehled</a>
+            <div class="m-menu-container" data-role="dropdown" data-no-close="true">
+                <div class="grid no-margin">
+                    <div class="row cells5">
+                        <div class="cell padding10">
+                            {if $photo == null}
+                                <img src="{$basePath}/images/me.png">
+                            {else}
+                                <img src= {$photo|dataStream}>
+                            {/if}
+
+                        </div>
+                        <div class="cell colspan2">
+                            <h2 class="fg-white text-bold text-shadow">{$name}</h2>
+                            <p class="padding20 no-padding-top no-padding-left no-padding-bottom fg-white">
+                                {$user->getIdentity()->DESCRIPTION != null ? $user->getIdentity()->DESCRIPTION
+                                : 'Popis uživatele není k dispozici' |trim|firstUpper}
+                            </p>
+                        </div>
+                        <div class="cell colspan2">
+                            <ul class="unstyled-list">
+                                <li><h3 class="text-shadow">{$titleSection}</h3></li>
+                                <br><br>
+                                {if $role === 1}
+                                    <li><a id="item_menu" n:href="Summary:createEvent">Vytvořit
+                                            událost</a></li>
+                                    <li><a id="item_menu" n:href="Summary:unit">Registrace nového
+                                            člena</a></li>
+                                    <li><a id="item_menu" n:href="Summary:editUsers">Uživatelské
+                                            účty</a></li>
+                                    <li><a id="item_menu" n:href="Summary:statistics">Statistiky</a>
+                                    </li>
+                                {elseif $role=== 2}
+                                    <li><a id="item_menu" n:href="Summary:statistics">Statistiky</a>
+                                    </li>
+                                {/if}
+                                <li><a id="item_menu" n:href="Summary:activity">Aktivita</a></li>
+                                <li><a id="item_menu" n:href="Summary:visits">Návštěvnost</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a href="#" class="dropdown-toggle">Nastavení</a>
+            <div class="m-menu-container" data-role="dropdown" data-no-close="true">
+                <ul class="inline-list">
+                    <li><a class="fg-white" n:href="Summary:account">konfigurace účtu</a></li>
+                    <li><a n:href="Summary:deleteAccount">deaktivace účtu</a></li>
+                    <li><a n:href="Summary:newsletters">odebírání zpráv</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a n:href="UserSection:events">Události</a></li>
+        <li><a n:href="UserSection:chat">Chat</a></li>
+        <li><a n:href="UserSection:downloads">Stáhnout</a></li>
+
+        {if $role ==1}
+            <li>
+                <a href="#" class="dropdown-toggle">Nahrát</a>
+                <div class="m-menu-container" data-role="dropdown" data-no-close="true">
+                    <ul class="inline-list">
+                        <li><a n:href="UserSection:uploadDocuments">dokumenty</a></li>
+                        <li><a n:href="UserSection:uploadArticles">články</a></li>
+                        <li><a n:href="UserSection:uploadNews">novinky</a></li>
+                        <li><a n:href="UserSection:uploadPhoto">fotografie</a></li>
+                    </ul>
+                </div>
+            </li>
+        {/if}
+        <li><a n:href="logout!">Odhlásit</a></li>
+    </ul>
+{else}
+    <ul class="m-menu">
+        <li><a href="#">{date('d-m-Y')}</a></li>
+        <li><a href="#">Nejste přihlášen</a></li>
+
+        <!-- Umístěte tuto značku na místo, kde se má widget tlačítko sdílení zobrazit. -->
+
+    </ul>
+
+{/if}
+

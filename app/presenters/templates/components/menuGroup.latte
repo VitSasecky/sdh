@@ -1,0 +1,44 @@
+<ul class="nav nav-tabs">
+    {foreach $navigation as $section}
+        {if $section->isModal === true}
+            <li role="presentation" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">
+                <a href="#"><b>{$section->name}</b></a>
+            </li>
+        {else}
+            <li role="presentation" class="active" id="{$section->action}">
+                <a href="#">{$section->name}</a></li>
+        {/if}
+    {/foreach}
+
+    <!--<li role="presentation" data-toggle="modal" data-target="#poll" data-whatever="@mdo">
+        <a href="#"><b>Anketa</b></a>
+    </li>-->
+
+    <li role="presentation" onclick="alert('Žádná anketa není právě k dispozici')">
+        <a href="#"><b>Anketa</b></a>
+    </li>
+    <hr>
+</ul>
+
+
+{capture $modalBlock}
+     {control contactForm}
+{/capture}
+
+{include ../components/modal.latte, modalBlock => $modalBlock, modalHeader=> 'Kontaktní formulář'}
+
+
+<div class="modal fade" id="poll" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Anketa</h4>
+            </div>
+            <div class="modal-body">
+                {include ../components/poll.latte}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+{var $iconSection = 'images/earth.png' }
+{block mainContent}
+    {include ../components/titleHeader.latte}
+    <hr>
+    <div class="container">
+        <table class="table table-striped">
+            {foreach $references as $reference}
+                <tr>
+                    <td width="150px" height="65">
+                        <a href='{$reference->getUrl()}' target="_blank">
+                            <img src='{$basePath}/{$reference->getImagePath()}'
+                                 alt='{$reference->getDescription()|trim|firstUpper}'
+                                 width='40'
+                                 height='30'/>
+                        </a>
+                    </td>
+                    <td width="600" height="40">
+                        <a target="_blank" href='{$reference->getUrl()}'>{$reference->getDescription()|trim|firstUpper}
+                        </a>
+                    </td>
+                </tr>
+            {/foreach}
+        </table>
+        <div style="text-align: center;">
+            {include '../components/paginator.latte'
+                     , items => $references
+                     , presenter=> 'Section'
+                     , action =>'references'
+                     , paginatorDesc => true}
+        </div>
+    </div>
+{/block}

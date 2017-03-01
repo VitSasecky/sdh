@@ -1,0 +1,20 @@
+{var $iconSection = 'images/newsletter.png' }
+{var $title = 'Deaktivace účtu'}
+{block mainContent}
+    {include ../components/titleHeader.latte}
+    <hr>
+    <p>V této sekci můžete deaktivovat účet.</p>
+
+    <div id='component'>
+        <form n:name=deleteAccountForm class=form>
+            <table>
+                <tr><td><u>Deaktivace uživatelského účtu</u></td></tr>
+                <tr>
+                    <td><input n:name=delete></td>
+                    <td style="padding: 10px;"></td>
+                    <td><input n:name=send></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+{/block}

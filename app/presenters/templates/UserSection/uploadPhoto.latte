@@ -1,0 +1,12 @@
+{var $iconSection = 'images/upload.png' }
+{var $description = '<p>V sekci <b>'.$title.'</b> můžete nahrávat více souborů najednou.</p>.<p>
+<b><u>Upozornění:</u></b>
+nahrát lze max. 20 fotografií. Pokud potřebujete nahrát více fotografií, využijte prosím formulář vícekrát.</p>'
+}
+
+{block mainContent}
+    {include ../components/titleHeader.latte}
+    <hr>
+    {$description|noescape|trim|firstUpper}
+    <div id='component'>{control photoUploader}</div>
+{/block}

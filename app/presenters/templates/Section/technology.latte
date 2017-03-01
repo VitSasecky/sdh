@@ -1,0 +1,32 @@
+{var $iconSection = 'images/sdh/sdh_auto.png' }
+{block mainContent}
+
+    {include ../components/titleHeader.latte}
+    <hr>
+    <div class="container">
+        <p><i>seznam technologií, kterými sbor disponuje.</i></p>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Název technologie</th>
+                <th>Stručný popis</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {foreach $technology as $item}
+                <tr>
+                    <td>{$item->name|firstUpper|trim}</td>
+                    <td>
+                        {if $item->description !== null}
+                            {$item->description|trim|truncate:20}
+                        {else}
+                            popis není aktuálně k dispozici.
+                        {/if}
+                    </td>
+                </tr>
+            {/foreach}
+            </tbody>
+        </table>
+    </div>
+{/block}

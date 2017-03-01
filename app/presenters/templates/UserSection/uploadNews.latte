@@ -1,0 +1,11 @@
+{var $iconSection = 'images/upload.png' }
+{var $description = '<p>V sekci <b>'.$title.'</b> můžete nahrávat více souborů najednou.
+</p><p>Nahrané soubory se po úspěšném nahrání ihned zobrazí ve vámi volené webové sekci.</p>'
+}
+
+{block mainContent}
+    {include ../components/titleHeader.latte}
+    <hr>
+    {$description|noescape|trim|firstUpper}
+    <div id='component'>{control newUploader}</div>
+{/block}

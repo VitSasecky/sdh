@@ -1,0 +1,21 @@
+{var $iconSection = 'images/newsletter.png' }
+{block mainContent}
+    {include ../components/titleHeader.latte}
+    <hr>
+    <p>Změna e-mailove notifikace. V tomto nastavení můžete povolit, či zakázat veškerá e-mailová oznámení.</p>
+
+    <div id='component'>
+        <form n:name=newsLetterForm class=form>
+            <table>
+                <tr>
+                    <td><u>Zapnutí/Vypnutí notifikace</u></td>
+                </tr>
+                <tr>
+                    <td><input n:name=notification/></td>
+                    <td style="padding: 10px;"></td>
+                    <td><input n:name=send/></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+{/block}

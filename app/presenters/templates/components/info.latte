@@ -1,0 +1,60 @@
+<div class="panel-group" id="accordion">
+    {foreach $information as $info}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    {if $iterator->counter !=1}
+                        {var $index = 'collapse'.$iterator->counter}
+                    {else}
+                        {var $index = 'collapse'}
+                    {/if}
+                    <a data-toggle="collapse" data-parent="#accordion" href="#{$index}"
+                       onMouseOver="this.style.backgroundColor='transparent';this.style.color='#cc0b0d'"
+                       onmouseout="this.style.color='#252767'" style="padding-right: 10px;padding-left: 10px;">
+                        <b>{$info->created |date:'j. n. Y h:i'}</b>| {$info->title}
+                        {var $message = 'Přejete si skutečně odstranit novinku: "'.$info->title.'"'}
+                    </a>
+                    {include ../components/actionDelete.latte
+                    , message => $message, actionLink => 'Homepage:deleteInformation', id=> $info->id}
+                </h4>
+
+            </div>
+            <div id="{$index}" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>{$info->text|truncate:300}</p>
+                </div>
+            </div>
+
+        </div>
+    {/foreach}
+
+    <span style="float: right;">
+        {default $page = $infoPreviousPage}
+        {default $i =0}
+        <ul class="pagination">
+            {for $page = $infoPreviousPage; $page<=$infoCountPages; $page++}
+                {continueIf $page <=0}
+                {*breakIf $page > $maxPages*}
+                <li>
+                    {if $page == $infoPreviousPage}
+                        <a n:href="Homepage:default $currentPage, $infoPreviousPage" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+
+                    {elseif $page == $infoCurrentPage}
+                        <a href="#" style="background-color: #d3d3d3;">{$page}</a>
+                    {elseif $page == $infoCountPages}
+                        <a n:href="Homepage:default  $currentPage,$infoNextPage" aria-label="Previous">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    {else}
+                    {php $i++}
+                    {continueIf $i >=1} {* povoli max 2 tlacitka, maknec jedno protoze paginator next podminka*}
+                        <a n:href="Homepage:default $currentPage, $page">{$page}</a>
+                    {/if}
+                </li>
+            {/for}
+
+        </ul>
+    </span>
+</div>

@@ -1,0 +1,9 @@
+{var $iconSection = 'images/download.png' }
+{block mainContent}
+    {include ../components/titleHeader.latte}
+    <hr>
+    <p>Vyberte fotogalerii, o kterou máte zájem. Bude vytvořen zip archiv se všemi fotografiemi vámi vybrané
+        fotogalerie.
+    </p>
+    <div id='component'>{control photoDownloader}</div>
+{/block}
