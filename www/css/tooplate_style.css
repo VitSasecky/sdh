@@ -1,0 +1,1062 @@
+/*
+
+Template 2020 Dark Pixel
+
+http://www.tooplate.com/view/2020-dark-pixel
+
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+    color: rgb(0, 0, 0);
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 14px;
+    line-height: 1.7em;
+    background-color: rgb(255, 255, 255);
+    background-image: url(../images/tooplate_body.jpg);
+    background-repeat: repeat-x;
+    background-repeat: repeat-y;
+    background-position: top center;
+}
+
+#sizeForms {
+    width: 150px;
+}
+
+a, a:link, a:visited {
+    color: rgb(249, 181, 7);
+    font-weight: normal;
+    text-decoration: underline;
+    font-size: 12px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a.more {
+    display: block;
+    width: 86px;
+    height: 29px;
+    padding: 2px 0 0;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 11px;
+    background: url(../images/tooplate_more.png) no-repeat top center;
+    color: rgb(162, 0, 37);
+    text-shadow: 1px 1px 1px rgb(98, 89, 83)
+}
+
+a.more:hover {
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 1px rgb(0, 0, 0)
+}
+
+p {
+    margin: 0 0 8px 0;
+    padding: 8px 8px 8px 8px;
+    font-size: 15px;
+}
+
+img {
+    border: none;
+}
+
+blockquote {
+    font-style: italic;
+    margin: 0 0 0 10px;
+}
+
+cite {
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+
+cite span {
+    color: rgb(255, 255, 255);
+}
+
+em {
+    color: rgb(200, 105, 10);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: rgb(162, 0, 37);
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 34px;
+    margin: 0 0 20px;
+    padding: 5px 0
+}
+
+h2 {
+    font-size: 28px;
+    margin: 0 0 15px;
+    padding: 5px 0;
+}
+
+h3 {
+    font-size: 24px;
+    margin: 0 0 15px;
+    padding-left: 15px;
+}
+
+#frm-signForm input[type="submit"] {
+    width: 80px;
+    height: 35px;
+    font-size: 11px;
+}
+
+#frm-signForm input[type="button"] {
+    width: 80px;
+    height: 35px;
+    font-size: 11px;
+}
+
+#signButton {
+    color: rgb(204, 11, 13);
+    font-size: 16px;
+}
+
+.text-light {
+    color: rgb(37, 39, 103);
+}
+
+#frm-signForm input[type="submit"]:hover {
+    background-color: rgb(37, 39, 103);
+    color: rgb(255, 255, 255);
+}
+
+#frm-signForm input[type="button"]:hover {
+    background-color: rgb(37, 39, 103);
+    color: rgb(255, 255, 255);
+}
+
+h4 {
+    font-size: 18px;
+    margin: 15px;
+    padding-left: 15px;
+}
+
+h5 {
+    font-size: 16px;
+    margin: 0 0 10px;
+    padding: 5px 0;
+}
+
+h6 {
+    font-size: 14px;
+    margin: 0 0 5px;
+    padding: 5px 0;
+}
+
+.cleaner {
+    clear: both
+}
+
+.h10 {
+    height: 10px
+}
+
+.h20 {
+    height: 20px
+}
+
+.h30 {
+    height: 30px
+}
+
+.h40 {
+    height: 40px
+}
+
+.h50 {
+    height: 50px
+}
+
+.h60 {
+    height: 60px
+}
+
+.float_l {
+    float: left
+}
+
+.float_r {
+    float: right
+}
+
+.image_wrapper {
+    display: inline-block;
+    border: 1px solid rgb(65, 65, 65);
+    padding: 4px;
+    background: rgb(0, 0, 0);
+    margin-bottom: 5px
+}
+
+.image_fl {
+    float: left;
+    margin: 3px 30px 0 0
+}
+
+.image_fr {
+    float: right;
+    margin: 3px 0 0 30px
+}
+
+.tooplate_list {
+    margin: 20px 0 20px 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.tooplate_list li {
+    color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0 0 5px 20px;
+    background: url(../images/tooplate_list.png) no-repeat scroll 0 5px;
+}
+
+.tooplate_list li a {
+    color: rgb(255, 255, 255);
+    font-weight: normal;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.tooplate_list li a:hover {
+    text-decoration: underline;
+}
+
+#tooplate_wrapper {
+    width: 1500px;
+    margin: 0 auto;
+    padding: 0 10px;
+    background: url(../images/tooplate_body.jpg) top center no-repeat
+}
+
+#tooplate_header {
+    clear: both;
+    width: 1350px;
+    height: 150px;
+    padding: 10px;
+    margin: 0px 65px;
+    background-color: rgb(37, 39, 103);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.sdhLogo {
+    content: url("../images/sdh/znak.png");
+    width: 130px;
+    height: 100px;
+}
+
+.sdhLogo:hover {
+    content: url("../images/sdh/sdh_auto.png");
+    width: 130px;
+    height: 100px;
+}
+
+#sdh_bin {
+    content: url("../images/remove.png");
+    width: 20px;
+    height: 20px;
+}
+
+#sdh_bin:hover {
+    content: url('../images/remove_hover.png');
+    cursor: pointer;
+}
+
+.SDH {
+    font-size: 11px;
+    margin-right: 5px;
+    padding-right: 5px;
+}
+
+.RSS {
+    font-size: 11px;
+}
+
+#site_title {
+    float: left;
+    width: 240px;
+    height: 55px;
+    margin: 20px auto;
+}
+
+.float-right {
+    float: right;
+}
+
+#mainLabel {
+    color: rgb(245, 245, 245);
+    text-align: center;
+    font-size: 30px;
+    font-family: "Segoe Print";
+}
+
+#site_title h1 {
+    margin: 0;
+    padding: 0;
+}
+
+#site_title h1 a {
+    display: block;
+    width: 50%;
+    height: 100%;
+    color: rgb(255, 255, 255);
+    outline: none;
+    text-indent: -10000px;
+    background: url(../images/tooplate_logo.png) no-repeat top center
+}
+
+#logo a {
+    float: right;
+    font-weight: normal;
+    height: 50%;
+    width: 10%;
+    display: block;
+    padding: 25px 55px 25px 0;
+    margin: 20px 30px 0 0;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+}
+
+/* menu */
+#tooplate_menu {
+    clear: both;
+    width: 910px;
+    padding: 0 15px;
+    background: url(../images/tooplate_menu.png)
+}
+
+#tooplate_menu ul {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+#tooplate_menu ul li {
+    padding: 0;
+    margin: 0;
+    display: inline;
+}
+
+#tooplate_menu ul .last {
+    background: none
+}
+
+#tooplate_menu ul li a {
+    float: left;
+    display: block;
+    width: 120px;
+    padding: 0;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 1px rgb(95, 95, 95);
+    text-align: center;
+    text-decoration: none;
+    font-weight: 400;
+    outline: none;
+    border: none;
+}
+
+#tooplate_menu ul li a:hover, #tooplate_menu ul .current {
+    color: rgb(255, 204, 0);
+    text-shadow: 1px 1px 1px rgb(0, 0, 0)
+}
+
+/* end of menu */
+
+#tooplate_middle {
+    clear: both;
+    width: 760px;
+    padding: 50px 100px 60px;
+    overflow: hidden;
+    background: url(../images/tooplate_mid_divider.png) bottom center no-repeat
+}
+
+#mid_title {
+    font-size: 34px;
+    font-weight: 400;
+    color: rgb(255, 204, 0);
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgb(0, 0, 0)
+}
+
+#tooplate_middle p {
+    width: 700px;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    line-height: 30px;
+}
+
+/* main */
+
+#tooplate_main {
+    clear: both;
+    width: 1350px;
+    height: 1150px;
+    margin: 0 65px;
+    border: rgb(37, 39, 103) solid 3px;
+    background-color: rgb(255, 255, 255);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.col_w960 {
+    width: 960px;
+    margin-bottom: 60px
+}
+
+.col_w600 {
+    width: 600px
+}
+
+.col_w450 {
+    width: 450px
+}
+
+.col_w400 {
+    width: 400px
+}
+
+.col_w350 {
+    width: 350px
+}
+
+.col_w300 {
+    width: 300px
+}
+
+.col_w200 {
+    width: 200px
+}
+
+.col_allw300 {
+    float: left;
+    width: 300px;
+    margin-right: 30px
+}
+
+.col_last {
+    margin: 0
+}
+
+.frontpage_box h2 {
+    font-size: 20px;
+    padding: 0;
+    margin-bottom: 5px;
+    color: rgb(255, 204, 0);
+}
+
+.frontpage_box img {
+    float: left;
+    margin-right: 15px;
+}
+
+.frontpage_box a.more {
+    margin-top: 15px;
+}
+
+.tagline {
+    display: block;
+    font-size: 11px;
+    font-weight: bold;
+    font-style: italic;
+    color: rgb(0, 0, 0);
+    margin-bottom: 20px
+}
+
+.lp_frontpage {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.lp_frontpage li {
+    margin: 0;
+    padding: 0;
+    display: inline
+}
+
+.lp_frontpage li a {
+    float: left;
+    display: block;
+    width: 200px;
+    height: 100px;
+    margin: 0 10px 10px 0
+}
+
+.lp_frontpage li a img {
+    width: 190px;
+    height: 90px;
+    border: 1px solid rgb(32, 50, 82);
+    padding: 4px;
+}
+
+.sb_lp_box {
+    clear: both;
+    margin-bottom: 20px
+}
+
+.sb_lp_box img {
+    width: 280px;
+    height: 140px;
+    padding: 9px;
+    border: 1px solid rgb(204, 204, 204)
+}
+
+#gallery {
+    margin: 0;
+    padding: 0
+}
+
+#gallery .gallery_box {
+    clear: both;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+}
+
+#gallery .gallery_box img {
+    float: left;
+    width: 420px;
+    height: 200px;
+    border: 1px solid rgb(204, 204, 204);
+    padding: 9px;
+    margin-right: 40px;
+    background: rgb(255, 255, 255)
+}
+
+#gallery .last_box {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    background: none
+}
+
+.news_box {
+    margin-bottom: 60px
+}
+
+.news_box h2 {
+    font-size: 16px;
+    margin-bottom: 0
+}
+
+.news_box p.date {
+    color: rgb(0, 0, 0);
+    margin-bottom: 0
+}
+
+.news_box img {
+    float: left;
+    width: 100px;
+    height: 100px;
+    border: 5px solid rgb(204, 204, 204);
+    margin-right: 20px;
+}
+
+.news_box a.more {
+    float: right;
+    color: rgb(162, 0, 37);
+
+}
+
+.post_box {
+    clear: both;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    background: repeat-x bottom;
+}
+
+.post_box_date {
+    float: left;
+    width: 100px;
+    font-size: 12px;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.post_box_date span {
+    display: block;
+    font-weight: normal;
+}
+
+.post_box_content {
+    float: right;
+    width: 480px
+}
+
+.post_box_content img {
+    margin-bottom: 10px
+}
+
+.post_box h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+.post_box h2 a {
+    color: rgb(255, 204, 0);
+    font-size: 34px;
+    font-weight: normal;
+    line-height: 34px;
+    margin-bottom: 20px;
+    text-decoration: none
+}
+
+.post_box h2 a span {
+    font-size: 12px;
+    color: rgb(0, 0, 0);
+}
+
+.post_box p {
+    margin-bottom: 0;
+}
+
+.post_box p.date {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+}
+
+.post_box .more {
+    clear: both;
+    float: right;
+    color: rgb(162, 0, 37);
+    margin-top: 20px;
+}
+
+.lbe_box {
+    clear: both;
+    margin-bottom: 20px;
+}
+
+.lbe_date {
+    float: left;
+    width: 100px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.lbe_date span {
+    display: block;
+    font-weight: normal;
+}
+
+.lbe_content {
+    float: right;
+    width: 320px;
+}
+
+.lbe_box h3 {
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+.flashMessage_warning {
+    background-color: rgb(255, 165, 0);
+    font-family: Calibri;
+    font-weight: bold;
+    width: 980px;
+    color: rgb(255, 255, 255);
+    padding: 10px 10px 10px 10px;
+    border-color: rgb(245, 245, 245);
+    border-style: solid;
+}
+
+.flashMessage_success {
+    background-color: rgb(124, 252, 0);
+    font-family: Calibri;
+    width: 980px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    padding: 10px 10px 10px 10px;
+    border-color: rgb(245, 245, 245);
+    border-style: solid;
+}
+
+.flashMessage_info {
+    background-color: rgb(255, 235, 205);
+    font-family: Calibri;
+    width: 980px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    padding: 10px 10px 10px 10px;
+    border-color: rgb(245, 245, 245);
+    border-style: solid;
+}
+
+.flashMessage_error {
+    background-color: rgb(220, 20, 60);
+    font-family: Calibri;
+    font-weight: bold;
+    width: 980px;
+    color: rgb(255, 255, 255);
+    padding: 10px 10px 10px 10px;
+    border-color: rgb(245, 245, 245);
+    border-style: solid;
+}
+
+.lbe_box h3 a {
+    color: rgb(249, 181, 7);
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.lbe_box h3 a span {
+    font-size: 12px;
+    color: rgb(0, 0, 0);
+}
+
+.lbe_box p {
+    margin-bottom: 0;
+}
+
+.lbe_box p.date {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgb(249, 181, 7);
+}
+
+div.background {
+    background: url(../images/sdh/znak.png);
+
+}
+
+div.transbox {
+    background-color: rgb(255, 255, 255);
+    opacity: 0.6;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+}
+
+div.transbox p {
+    margin: 5%;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+
+.mainArticle {
+    background-image: url(../images/sdh/znak.png);
+    background-size: cover;
+    opacity: 0.02;
+}
+
+dl {
+    margin: 15px 10px;
+}
+
+dt {
+    margin: 15px 10px;
+}
+
+#mainContent {
+    font-family: "Book Antiqua";
+    font-size: 12pt;
+    color: rgb(37, 39, 103);
+    padding: 8px 10px 8px 10px;
+    overflow-y: auto;
+    overflow-x: auto;
+    height: 890px;
+}
+
+#mainContent p {
+    margin-left: 15px;
+    color: rgb(37, 39, 103);
+    font-size: 13pt;
+}
+
+#mainContent a {
+    font-size: 16px;
+    color: rgb(37, 39, 103)
+}
+
+#customForms {
+    padding: 10px;
+    margin: 10px;
+}
+
+#customForms input {
+    width: 280px;
+    background-color: rgb(255, 255, 255);
+}
+
+#customForms select {
+    width: 280px;
+    background-color: rgb(255, 255, 255);
+}
+
+#customForms input[type=date], select {
+    width: 280px;
+    height: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+#customForms input[type=radio] {
+    width: 40px;
+    height: 20px;
+    margin: 10px;
+
+    background-color: rgb(255, 255, 255);
+}
+
+#customForms td {
+    padding: 5px;
+    margin: 5px;
+    background-color: rgb(255, 255, 255);
+}
+
+#customForms th {
+    padding: 5px;
+    margin: 5px;
+}
+
+.active li a {
+    background-color: rgb(37, 39, 103);
+    color: rgb(255, 255, 255);
+}
+
+#mainContent a:hover {
+    color: rgb(255, 0, 0)
+}
+
+#mainContent a:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(37, 39, 103)
+}
+
+#mainContent a:active {
+    color: rgb(37, 39, 103)
+}
+
+#cp_contact_form {
+    padding-left: 20px;
+    color: rgb(37, 39, 103);
+    width: 250px;
+}
+
+#cp_contact_form form th {
+    margin: 0px;
+    width: 10px;
+    padding: 0px;
+}
+
+#cp_contact_form form {
+    margin: 0px;
+    padding: 0px;
+    color: rgb(37, 39, 103)
+}
+
+#cp_contact_form form input[type="checkbox"] {
+    padding: 0px;
+    margin: 3px;
+}
+
+#cp_contact_form form input[type="submit"] {
+    width: 90px;
+    text-align: center;
+    height: 30px;
+    font-size: 12px;
+    margin: 3px;
+}
+
+#cp_contact_form form input[type="date"] {
+    height: 30px;
+}
+
+#cp_contact_form form input[type="button"]:hover {
+    background-color: rgb(37, 39, 103);
+    color: rgb(255, 255, 255);
+    margin: 3px;
+}
+
+#cp_contact_form form input[type="submit"]:hover {
+    background-color: rgb(37, 39, 103);
+    color: rgb(255, 255, 255);
+    margin: 3px;
+}
+
+#cp_contact_form form select {
+    width: 388px;
+    padding: 5px;
+    margin-top: 5px;
+    font-size: 12px;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+#cp_contact_form form .input_field {
+    width: 388px;
+    padding: 5px;
+    border: 1px solid rgb(59, 58, 58);
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+#cp_contact_form form label {
+    display: block;
+    width: 150px;
+    font-size: 13px;
+    color: rgb(37, 39, 103);
+}
+
+#cp_contact_form select {
+    height: 30px;
+}
+
+#cp_contact_form input[type=radio] {
+    height: 20px;
+    width: 15px;
+    padding: 5px;
+    margin: 8px;
+}
+
+#cp_contact_form form textarea {
+    width: 388px;
+    padding: 5px;
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(59, 58, 58);
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+#cp_contact_form form .submit_btn {
+    font-weight: bold;
+    font-size: 10px;
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(59, 58, 58);
+}
+
+#logoBig {
+    width: 400px;
+    height: 400px;
+    float: right;
+    margin-right: 100px;
+    opacity: 0.5;
+}
+
+#component {
+    padding: 20px;
+    margin: 10px;
+}
+
+#component label {
+    padding: 5px;
+}
+
+#component tr {
+    padding: 8px;
+}
+
+#component th {
+    padding: 8px;
+}
+
+#component select {
+    width: 299px;
+    height: 30px;
+}
+
+#frm-chat input[type=submit] {
+    width: 105px;
+    height: 30px;
+    color: rgb(37, 39, 103);
+    font-size: 12px;
+}
+
+select {
+    width: 200px;
+    height: 30px;
+}
+
+.unstyled-list li {
+    height: 20px;
+}
+
+.unstyled-list a {
+    font-size: 18px;
+}
+
+input[type=submit]:hover {
+    background-color: rgb(37, 39, 103);
+    color: rgb(255, 255, 255);
+}
+
+#frm-chat input[type=submit]:hover {
+    width: 105px;
+    height: 30px;
+    background-color: rgb(37, 39, 103);
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+}
+
+#component input[type=submit] {
+    width: 120px;
+    height: 35px;
+    color: rgb(37, 39, 103);
+    font-size: 14px;
+}
+
+#component input[type=submit]:hover {
+    width: 115px;
+    height: 35px;
+    font-size: 14px;
+    background-color: rgb(37, 39, 103);
+    color: rgb(255, 255, 255);
+}
+
+#map img {
+    width: 300px;
+    height: 200px;
+    border: 1px solid rgb(153, 153, 153);
+    padding: 5px;
+}
+
+#tooplate_footer_wrapper {
+    margin-top: 30px;
+    clear: both;
+    width: 100%;
+}
+
+#tooplate_footer {
+    clear: both;
+    width: 960px;
+    height: 30px;
+    padding: 20px 14px;
+    text-align: center;
+    color: rgb(255, 53, 88);
+    text-shadow: 1px 1px 1px rgb(88, 88, 88);
+    margin: 0 auto;
+}
+
+#countdown {
+    color: rgb(255, 255, 255);
+}
+
+#tooplate_footer a {
+    font-weight: normal;
+    color: rgb(255, 53, 88);
+    text-shadow: 1px 1px 1px rgb(88, 88, 88);
+    text-decoration: none;
+}
+
+#holidayName {
+    float: right;
+    width: 120px;
+    color: rgb(255, 255, 255);
+    padding-right: 10px;
+    font-size: 11px;
+}
+
+#mainContent .active :hover {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    background-color: rgb(37, 39, 103);
+}
