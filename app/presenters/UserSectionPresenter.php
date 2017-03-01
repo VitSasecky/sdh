@@ -391,8 +391,11 @@ class UserSectionPresenter extends BasePresenter
 	{
 		$size = 20;
 		$replace = [];
+
+		$subject = htmlspecialchars($subject); //escapovat html
 		foreach (self::$smiles as $smiley => $imgName)
 		{
+			//zde nescapuji, ponvadz je to html element pro zobrazeni obrazku a je to bezpecne
 			$replace[] = '<img src="../images/emoticons/' . $imgName . '.ico" alt="' . $smiley . '" class="smiley" width="'
 				. $size . '" height="' . $size . '"/>';
 		}
