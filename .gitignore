@@ -1,0 +1,10 @@
+app/config/config.local.neon
+.idea/copyright/
+.idea/dataSources/
+.idea/vcs.xml
+
+log/
+temp/
+app/db_schema/
+www/documents/
+www/web.config
