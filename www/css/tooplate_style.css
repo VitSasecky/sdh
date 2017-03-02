@@ -959,10 +959,22 @@ dt {
     padding: 8px;
 }
 
+#component input[type="text"] {
+    width: 299px;
+    height: 30px;
+}
+
+#component input[type="file"] {
+    width: 299px;
+    height: 30px;
+}
+
+
 #component select {
     width: 299px;
     height: 30px;
 }
+
 
 #frm-chat input[type=submit] {
     width: 105px;
@@ -1011,6 +1023,46 @@ input[type=submit]:hover {
     background-color: rgb(37, 39, 103);
     color: rgb(255, 255, 255);
 }
+
+#componentUpload {
+    padding: 20px;
+    margin: 10px;
+}
+
+#componentUpload input[type=text] {
+    width: 800px;
+    height: 30px;
+}
+
+
+#componentUpload label {
+    padding: 5px;
+}
+
+#componentUpload tr {
+    padding: 8px;
+}
+
+#componentUpload th {
+    padding: 8px;
+}
+
+#componentUpload textarea {
+    display: block;
+    width: 100%;
+    height: 180px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#componentUpload input[type=select] {
+    width: 600px;
+    height: 30px;
+}
+
+
+
 
 #map img {
     width: 300px;

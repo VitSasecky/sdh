@@ -18888,3 +18888,6 @@ p [data-hint] {
     flex: 0 0 1000px
 }
 
+.error{
+    color:red;
+}

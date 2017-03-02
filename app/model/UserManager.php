@@ -121,6 +121,7 @@ class UserManager extends Nette\Object implements Nette\Security\IAuthenticator
 			$user->setFirstName($values['firstname'])
 				->setSurname($values['surname'])
 				->setBirthDate($values['birth'])
+				->setDescription($values['description'])
 				->setEmail($values['email'])
 				->setSex($values['sex'])
 				->setNickname($values['nickname'])

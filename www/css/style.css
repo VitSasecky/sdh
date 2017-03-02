@@ -2,9 +2,12 @@ body {
     line-height: 1.6;
     font: normal 85% Constantia, Helvetica, sans-serif;
 
-    color: rgb(0, 0, 0);
+    color: yellow;;
     text-shadow: 0px 1px 0px rgb(0, 0, 0)
+}
 
+.error {
+    color: red;
 }
 
 .tooltips {
@@ -40,7 +43,6 @@ body {
     display: none;
 }
 
-
 div.flash {
     color: rgb(0, 0, 0);
     background: rgb(255, 249, 215);
@@ -64,7 +66,7 @@ form th {
 }
 
 form .required label {
-    color: rgb(37, 39, 103);
+    color: rgb(221, 0, 0);
     font-weight: bold;
 }
 
@@ -194,9 +196,6 @@ ul#menu {
     margin: 0;
 }
 
-
-
-
 ul#menu li {
     padding: 0 0 0 0px;
     list-style: none;
@@ -242,30 +241,22 @@ ul#menu li.current a, ul#menu li:hover a {
 
 }
 
-
 #mainContent {
-    float:right;
+    float: right;
     background-color: rgb(255, 255, 255);
     border-style: inherit;
     border-color: rgb(220, 20, 60);
     width: 1800px;
-    height:1200px;
+    height: 1200px;
 }
 
-
-
-dd{
+dd {
     margin: 15px 15px 15px 15px;
 }
 
-
- dt{
+dt {
     margin: 15px 15px 15px 15px;
 }
-
-
-
-
 
 .my_sidebar_item {
     font: normal 100% Arial, Helvetica, sans-serif;
@@ -371,11 +362,10 @@ dd{
     -webkit-border: 7px 7px 7px 7px;
 }
 
-#countContainer{
+#countContainer {
     color: rgb(255, 255, 255);
     float: right;
 }
-
 
 .readmore a {
     color: rgb(220, 20, 60);

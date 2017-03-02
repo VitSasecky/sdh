@@ -15,7 +15,7 @@ use Tracy\Debugger;
  */
 class PhotoUploaderFactory extends Nette\Object
 {
-	const TEXTBOX_SIZE = '35';
+	const TEXTBOX_SIZE = 38;
 
 	/**
 	 * @return Form
@@ -23,8 +23,7 @@ class PhotoUploaderFactory extends Nette\Object
 	public function create()
 	{
 		$form = new Form;
-		$form->addText('dirname', 'Zadejte název fotogalerie')
-			->setAttribute('size', self::TEXTBOX_SIZE);
+		$form->addText('dirname', 'Zadejte název fotogalerie');
 
 		$select = [];
 		$select[0] = '---Nová fotogalerie---';
