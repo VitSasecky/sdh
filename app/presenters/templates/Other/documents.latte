@@ -1,6 +1,12 @@
 {var $iconSection = 'images/news.png' }
 {block mainContent}
     {include ../components/titleHeader.latte}
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover();
+        });
+    </script>
+
     <hr>
     <div class="container">
         <table class="table table-striped">
@@ -9,11 +15,11 @@
                 <td width='80px'>Název</td>
                 <td width='80px'>Popis</td>
                 <td width='20px'>Typ</td>
-                <td width='20px'>Velikost (KB)</td>
-                <td width='50px'>Nahrál</td>
+                <td width='20px'>Velikost</td>
+                <td width='80px'>Nahrál</td>
                 <td width='50px'>Vytvořeno</td>
                 {if $role ==1}  <!-- administrator-->
-                    <td width='50px'>Odstranit</td>
+                    <td></td>
                 {/if}
             </tr>
             </thead>
@@ -22,9 +28,16 @@
                     <td width="30%">
                         <a n:href="Other:downloadDocument $document->getId()">{$document->getName()}</a>
                     </td>
-                    <td width="35%">
+                    <td width="30%">
                         {if $document->getDescription()}
-                            {$document->getDescription()|truncate:40}
+                            <ul class="list-inline">
+                                <li><a href="#" title="{$document->getName()}" data-toggle="popover" style="overflow: scroll;"
+                                       data-placement="{$document->getDescription()|truncate:20}"
+                                       data-content="{$document->getDescription()}" style="overflow: scroll">
+                                        {$document->getDescription()|truncate:20}
+                                    </a>
+                                </li>
+                            </ul>
                         {else}
                             bez popisu
                         {/if}
@@ -36,13 +49,13 @@
 
                     {var $message = 'Přejete si skutečně odstranit dokument: "'.$document->name.'"'}
                     <td width="5%">
-                    {include ../components/actionDelete.latte
+                        {include ../components/actionDelete.latte
                     , message => $message, actionLink => 'Other:deleteDocument', id=> $document->id}
                     </td>
                 </tr>
             {/foreach}
         </table>
-        <div style= "text-align: center;">
+        <div style="text-align: center;">
             {include '../components/paginator.latte'
                      , items => $documents
                      , presenter=> 'Other'

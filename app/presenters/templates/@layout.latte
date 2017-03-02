@@ -13,10 +13,9 @@
     <link rel="stylesheet" href="https://cdn.rawgit.com/hyspace/typeahead.js-bootstrap3.less/v0.2.3/typeahead.css">
     <link rel="stylesheet" href="https://cdn.rawgit.com/rstacruz/nprogress/v0.1.6/nprogress.css">
     <link rel="stylesheet" href="{$gridoAssetsPath}/grido.css">
-
-
-    {include components/header.latte} <!-- sablona, ktera definuje kompletni hlavicku vsech webovych stranek-->
+    {include components/header.latte}
 </head>
+
 <body>
 <div id="tooplate_wrapper">
     <div id="tooplate_header">
@@ -77,7 +76,6 @@ src = "https://cdn.rawgit.com/jquery/jquery/1.11.2/dist/jquery.min.js" ></script
 </script>
 
 
-
 <script n:if="$ajax" src="https://cdn.rawgit.com/twitter/typeahead.js/v0.10.5/dist/typeahead.bundle.min.js"></script>
 <script n:if="$ajax" src="https://cdn.rawgit.com/vojtech-dobes/nette.ajax.js/2.0.0/nette.ajax.js"></script>
 <script n:if="$ajax" src="https://cdn.rawgit.com/rstacruz/nprogress/v0.1.6/nprogress.js"></script>
@@ -91,10 +89,11 @@ src = "https://cdn.rawgit.com/jquery/jquery/1.11.2/dist/jquery.min.js" ></script
 <!-- end of tooplate_footer -->
 
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
+<script>(function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
+        js = d.createElement(s);
+        js.id = id;
         js.src = "//connect.facebook.net/cs_CZ/sdk.js#xfbml=1&amp;version=v2.8";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>

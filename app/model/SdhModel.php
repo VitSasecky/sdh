@@ -534,9 +534,11 @@ class SdhModel extends BaseModel
 		}
 		$this->prepareDocumentDirectory();
 
-		/**
-		 * @var array $files
-		 */
+		$description = isset($values['description']) && $values['description']
+			? mb_substr($values['description'], 0, $maxLen)
+			: null;
+
+		/*** @var array $files */
 		$files = $values['uploadFiles'];
 		$document = false;
 
@@ -550,10 +552,7 @@ class SdhModel extends BaseModel
 						? mb_substr($values['name'], 0, $maxLen)
 						: $file->getName())
 				->setContent($file->getContents())
-				->setDescription(
-					isset($values['description']) && $values['description']
-						? mb_substr($values['description'], $maxLen)
-						: null)
+				->setDescription($description)
 				->setSize($file->getSize())
 				->setFileName($file->getName())
 				->setMimeType($file->getContentType())
@@ -821,7 +820,7 @@ class SdhModel extends BaseModel
 	 * @return $this
 	 * @throws \App\Model\Exceptions\ModelException
 	 */
-	private function sendNotifications($subject, $message)
+	public function sendNotifications($subject, $message)
 	{
 		$recipients = $this->getRecipients(); //identifikuje veskere prijemce
 		if ($recipients)
@@ -1545,6 +1544,7 @@ class SdhModel extends BaseModel
 	 */
 	public function sendEmails($emails, $subject, $message)
 	{
+		$emails = is_array($emails) ? $emails : (array)$emails;
 		$mail = new Message();
 		$mail->setFrom($this->emails['sdh']);
 		foreach ($emails as $email)
@@ -1562,13 +1562,13 @@ class SdhModel extends BaseModel
 		} catch (SendException $e)
 		{
 			$this->log(sprintf(
-				'Email se zpravou: "%s" se nepodarilo odeslat na e - maillovou adresu: %s',
+				'Email se zpravou: "%s" se nepodarilo odeslat na e-maillovou adresu: %s',
 				$message,
 				$this->emails['admin']
 			), Logger::ERROR
 			);
 			$this->log($e, Logger::EXCEPTION);
-			throw new ModelException('Došlo k systémové chybě, e - mail se nepodařilo odeslat . ');
+			throw new ModelException('Došlo k systémové chybě, e-mail se nepodařilo odeslat . ');
 		}
 		return $this;
 	}
@@ -1769,7 +1769,7 @@ class SdhModel extends BaseModel
 	protected function prepareDocumentDirectory()
 	{
 		$documentDir = $this->params['loader']['documents']['dir'];
-		if (!mkdir($documentDir, 0777, true) && !is_dir($documentDir))
+		if (!@mkdir($documentDir, 0777, true) && !is_dir($documentDir))
 		{
 			throw new DirectoryNotFoundException(
 				sprintf('Došlo k systémové chybě, sekce pro dokumenty: "%s" nebude vytvořena',

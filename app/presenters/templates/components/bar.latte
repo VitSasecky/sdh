@@ -32,7 +32,7 @@
                  data-no-close="false" style="width: 324px;">
 
                 <div class="tile-small bg-red">
-                    <div class="tile-content iconic" onclick="window.location.href='{link $userProperty['LINK']}'">
+                    <div class="tile-content iconic" onclick="window.open({link $userProperty['LINK']},'_self')">
                         <img src="{$userProperty['IMAGE']}" alt="{$userProperty['ALT']|trim|firstUpper}"
                              class="icon mif-user"/>
                     </div>
