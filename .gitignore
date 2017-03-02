@@ -2,6 +2,7 @@ app/config/config.local.neon
 .idea/copyright/
 .idea/dataSources/
 .idea/vcs.xml
+.idea
 
 log/
 temp/
