@@ -184,6 +184,7 @@ class SummaryPresenter extends BasePresenter
 	 * Vytvori komponentu pro vytvoreni novych udalosti
 	 *
 	 * @return Nette\Application\UI\Form
+	 * @throws \Nette\Application\AbortException
 	 * @throws \Doctrine\ORM\TransactionRequiredException
 	 * @throws \Doctrine\ORM\ORMInvalidArgumentException
 	 * @throws \Doctrine\ORM\ORMException
@@ -202,6 +203,8 @@ class SummaryPresenter extends BasePresenter
 						'Nová událost: "%s" byla úspěšně vytvořena.', $values['name'])
 					, Model\Entity\FlashMessage::SUCCESS
 				);
+
+				$this->redirect('Summary:createEvent');
 			} catch (Model\Exceptions\ModelException $e)
 			{
 				Debugger::log($e);

@@ -1,24 +1,35 @@
+{if $role ==1} <!-- administrator-->
+    {var $width  = 90}
+{else}
+    {var $width  = 100}
+{/if}
+
 <div class="panel-group" id="accordion">
     {foreach $information as $info}
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title">
+        <div class="panel panel-default" style="padding: 0;">
+            <div class="panel-heading" style="margin-left: 0; margin-right: 0;">
+                <h4 class="panel-title" style=" word-wrap: break-word; width:{$width}%;">
                     {if $iterator->counter !=1}
                         {var $index = 'collapse'.$iterator->counter}
                     {else}
                         {var $index = 'collapse'}
                     {/if}
+                    <span>
                     <a data-toggle="collapse" data-parent="#accordion" href="#{$index}"
                        onMouseOver="this.style.backgroundColor='transparent';this.style.color='#cc0b0d'"
-                       onmouseout="this.style.color='#252767'" style="padding-right: 10px;padding-left: 10px;">
+                       onmouseout="this.style.color='#252767'" style="padding-right:10px;word-wrap: break-word;">
                         <b>{$info->created |date:'j. n. Y h:i'}</b>| {$info->title}
                         {var $message = 'Přejete si skutečně odstranit novinku: "'.$info->title.'"'}
                     </a>
-                    {include ../components/actionDelete.latte
-                    , message => $message, actionLink => 'Homepage:deleteInformation', id=> $info->id}
                 </h4>
-
+                {if $role ==1}  <!-- administrator-->
+                    <div style="float: right; margin-top: -15px;">
+                        {include ../components/actionDelete.latte
+                    , message => $message, actionLink => 'Homepage:deleteInformation', id=> $info->id}
+                    </div>
+                {/if}
             </div>
+
             <div id="{$index}" class="panel-collapse collapse">
                 <div class="panel-body">
                     <p>{$info->text|truncate:300}</p>

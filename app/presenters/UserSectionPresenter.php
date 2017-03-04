@@ -131,6 +131,7 @@ class UserSectionPresenter extends BasePresenter
 	 * Vytvori komponentu pro upload novinek
 	 *
 	 * @return Form
+	 * @throws \Nette\Application\AbortException
 	 * @throws \Doctrine\ORM\TransactionRequiredException
 	 * @throws \Doctrine\ORM\ORMInvalidArgumentException
 	 * @throws \Doctrine\ORM\ORMException
@@ -148,6 +149,7 @@ class UserSectionPresenter extends BasePresenter
 				$this->flashMessage(sprintf('Novinka: "%s" byla úspěšně přidána', $values['title'])
 					, Model\Entity\FlashMessage::SUCCESS
 				);
+				$form->getPresenter()->redirect('UserSection:uploadNews');
 			} catch (Model\Exceptions\ModelException $e)
 			{
 				Debugger::log($e);
@@ -175,7 +177,9 @@ class UserSectionPresenter extends BasePresenter
 			} catch (\Exception $e)
 			{
 				Debugger::log($e);
-				$this->flashMessage($e->getMessage(), Model\Entity\FlashMessage::ERROR);
+				$this->flashMessage('Došlo k systémové chybě, dokument se nepodařilo uložit.'
+					, Model\Entity\FlashMessage::ERROR
+				);
 			}
 
 			/** @var array $flashes $flashes */

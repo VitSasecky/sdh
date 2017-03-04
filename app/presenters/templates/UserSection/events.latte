@@ -19,7 +19,7 @@
 
             {foreach $events as $event}
                 {if $iterator->first}
-                    {php $type= 'active'}
+                    {php $type= 'active2'}
                 {elseif $now <= $event->getDate()}
                     {php $type= 'success'}
                 {else}

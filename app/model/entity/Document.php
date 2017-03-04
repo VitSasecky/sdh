@@ -94,10 +94,13 @@ class Document extends BaseEntity
 
 	/**
 	 * @param mixed $extension
+	 *
+	 * @return $this
 	 */
 	public function setExtension($extension)
 	{
 		$this->extension = $extension;
+		return $this;
 	}
 
 	/**

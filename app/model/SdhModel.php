@@ -71,7 +71,7 @@ class SdhModel extends BaseModel
 	/**
 	 * MAX. pocet dokumentu, ktere je mozne ulozit/nahrat
 	 */
-	const SAVE_DOCUMENTS_MAX = 50;
+	const SAVE_DOCUMENTS_MAX = 255;
 
 	/**
 	 * Entita uzivatele
@@ -545,6 +545,16 @@ class SdhModel extends BaseModel
 		/*** @var FileUpload $file */
 		foreach ($files as $file)
 		{
+			$extension = null;
+			try
+			{
+				$splFileInfo = new \SplFileInfo($file->getName());
+				$extension = $splFileInfo->getExtension();
+			} catch (\Exception $e)
+			{
+				Debugger::log($e);
+			}
+
 			$document = new Document();
 			$document->setAuthor($this->entityManager->find(\App\Entity\User::class, $this->user->getId()))
 				->setName(
@@ -553,6 +563,7 @@ class SdhModel extends BaseModel
 						: $file->getName())
 				->setContent($file->getContents())
 				->setDescription($description)
+				->setExtension($extension)
 				->setSize($file->getSize())
 				->setFileName($file->getName())
 				->setMimeType($file->getContentType())
@@ -1616,9 +1627,10 @@ class SdhModel extends BaseModel
 	{
 		$albumDir = $this->params['loader']['photos']['dir'];
 
+
 		/*** @var \SplFileInfo $file */
 		$zip = new \ZipArchive;
-		$zipname = $dir . '.zip';
+		$zipname = __DIR__ . '/../../temp/' . $dir;
 		if ($zip->open($zipname, \ZipArchive::CREATE) === true)
 		{
 			foreach (Finder::findFiles('*')->from($albumDir . DIRECTORY_SEPARATOR . $dir) as $fileName => $file)

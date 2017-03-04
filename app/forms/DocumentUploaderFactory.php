@@ -2,6 +2,7 @@
 
 namespace App\Forms;
 
+use App\Model\SdhModel;
 use Nette,
 	Nette\Application\UI\Form;
 
@@ -13,9 +14,7 @@ use Nette,
  */
 class DocumentUploaderFactory extends Nette\Object
 {
-	const TEXTBOX_MAX_LENGTH = 50;
-	const TEXTBOX_SIZE = 50;
-
+	const INPUT_NAME_MAX_LEN = 100;
 	/**
 	 * @return Form
 	 */
@@ -23,11 +22,9 @@ class DocumentUploaderFactory extends Nette\Object
 	{
 		$form = new Form;
 		$form->addText('name', 'Název dokumentu')
-			->setMaxLength(self::TEXTBOX_MAX_LENGTH)
-			->setAttribute('size', self::TEXTBOX_SIZE);
-		$form->addText('description', 'Popis dokumentu')
-			->setMaxLength(self::TEXTBOX_MAX_LENGTH)
-			->setAttribute('size', self::TEXTBOX_SIZE);
+			->setMaxLength(self::INPUT_NAME_MAX_LEN);
+		$form->addTextArea('description', 'Popis dokumentu')
+			->setMaxLength(SdhModel::SAVE_DOCUMENTS_MAX);
 		$form->addMultiUpload('uploadFiles', 'Vyberte soubory:')
 			->setRequired('Nevybral/a jste žádný soubor k náhrání');
 		$form->addSubmit('UploadFiles', 'Nahraj');

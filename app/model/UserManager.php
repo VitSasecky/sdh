@@ -111,9 +111,10 @@ class UserManager extends Nette\Object implements Nette\Security\IAuthenticator
 			throw new ModelException('Došlo k systémové chybě, veškeré změny nebudou provedeny');
 		}
 
-		if (isset($values['id_role']) && $values['id_role'] > 0)
+		if (isset($values['role']) && $values['role'] > 0)
 		{
-			$user->setRole($this->entityManager->find(Role::class, $values['id_role']));
+			$newRole = $this->entityManager->find(Role::class, $values['role']);
+			$user->setRole($newRole);
 		}
 
 		if (!$onlyConfiguration)
@@ -130,7 +131,7 @@ class UserManager extends Nette\Object implements Nette\Security\IAuthenticator
 		} else
 		{
 			$user->setNotification($values['enabled']);
-		}
+	}
 
 		$user->setMembership($values['membership'])
 			->setNotification($values['notification']);

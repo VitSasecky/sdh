@@ -151,7 +151,7 @@ parameters:
            article:
                itemsPerPage: 30 #pocet clanku v sekce novinky
            news:
-               itemsPerPage: 15
+               itemsPerPage: 8
            newsList:
                itemsPerPage: 15
            document:

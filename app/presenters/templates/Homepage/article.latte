@@ -3,7 +3,7 @@
         {ifset $mainArticle}
             <div class="col_w450 lp_box float_l" style="height: 500px; position: absolute; padding-right:10px;">
                 <h2 style="padding-left:10px;color:#252767;"><u>{$mainArticle->getTitle()}</u></h2>
-                <p>{$mainArticle->getContent()|trim|truncate:750|noescape|firstUpper}</p>
+                {$mainArticle->getContent()|trim|truncate:750|noescape|firstUpper}
                 <p><a n:href="Section:news $mainArticle->getId()"><b>Zobrazit celý článek</b></a></p>
                 <hr>
                 <span style="float:left;">

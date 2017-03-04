@@ -91,7 +91,7 @@ class User extends BaseEntity
 
 
 	/**
-	 * @ORM\Column(type="boolean", nullable=false, options={"default"="0"})
+	 * @ORM\Column(type="integer", nullable=false, options={"default"="0"})
 	 */
 	protected $sex;
 

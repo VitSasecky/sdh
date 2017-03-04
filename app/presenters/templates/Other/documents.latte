@@ -19,7 +19,7 @@
                 <td width='80px'>Nahrál</td>
                 <td width='50px'>Vytvořeno</td>
                 {if $role ==1}  <!-- administrator-->
-                    <td></td>
+                    <td width="15px">Akce</td>
                 {/if}
             </tr>
             </thead>
@@ -31,9 +31,10 @@
                     <td width="30%">
                         {if $document->getDescription()}
                             <ul class="list-inline">
-                                <li><a href="#" title="{$document->getName()}" data-toggle="popover" style="overflow: scroll;"
+                                <li><a href="#" title="{$document->getName()}" data-toggle="popover"
+                                       style="overflow: scroll;"
                                        data-placement="{$document->getDescription()|truncate:20}"
-                                       data-content="{$document->getDescription()}" style="overflow: scroll">
+                                       data-content="{$document->getDescription()}" style="overflow: scroll;">
                                         {$document->getDescription()|truncate:20}
                                     </a>
                                 </li>
@@ -42,8 +43,33 @@
                             bez popisu
                         {/if}
                     </td>
-                    <td width="10%">{$document->getExtension()}</td>
-                    <td width="15%">{$document->getSize()}</td>
+
+                    <td width="10%">
+                    {if $document->getExtension()}
+                        <ul class="list-inline">
+                            <li><a href="#" title="{$document->getExtension()}"
+                                   data-toggle="popover" style="overflow: scroll;"
+                                   data-placement="{$document->getExtension()}"
+                                   data-content="{$document->getMimeType()}" style="overflow: scroll;">
+                                    {$document->getExtension()}
+                                </a>
+                            </li>
+                        </ul>
+                    {/if}
+                    </td>
+                    <td width="15%">
+
+                        {if $document->getSize()}
+                            <ul class="list-inline">
+                                <li><a href="#" title="Velikost souboru" data-toggle="popover" style="overflow: scroll;"
+                                       data-placement="{$document->getSize()} KB"
+                                       data-content="{$document->getSize()} KB" style="overflow: scroll;">
+                                        {$document->getSize() /1024 |number:2} MB
+                                    </a>
+                                </li>
+                            </ul>
+                        {/if}
+                    </td>
                     <td width="20%">{$document->getAuthor()->getFullname()}</td>
                     <td width="15%">{$document->getUploadedTime()|date:'%d.%m.%Y'}</td>
 

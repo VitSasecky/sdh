@@ -1,8 +1,7 @@
 {var gridoAssetsPath = $baseUri.'/css/grido'}
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v3.1.1/dist/css/bootstrap.min.css">
@@ -91,7 +90,9 @@ src = "https://cdn.rawgit.com/jquery/jquery/1.11.2/dist/jquery.min.js" ></script
 <div id="fb-root"></div>
 <script>(function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
+        if (d.getElementById(id)) {
+            return;
+        }
         js = d.createElement(s);
         js.id = id;
         js.src = "//connect.facebook.net/cs_CZ/sdk.js#xfbml=1&amp;version=v2.8";

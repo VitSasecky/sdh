@@ -263,9 +263,11 @@ h6 {
 }
 
 #sdh_bin {
-    content: url("../images/remove.png");
+    margin: 0;
+    padding: 0;
+    content: url('../images/remove.png');
     width: 20px;
-    height: 20px;
+    height: 18px;
 }
 
 #sdh_bin:hover {
@@ -299,6 +301,10 @@ h6 {
     text-align: center;
     font-size: 30px;
     font-family: "Segoe Print";
+}
+
+.active2{
+    background-color: lavender;
 }
 
 #site_title h1 {
@@ -969,12 +975,10 @@ dt {
     height: 30px;
 }
 
-
 #component select {
     width: 299px;
     height: 30px;
 }
-
 
 #frm-chat input[type=submit] {
     width: 105px;
@@ -1034,7 +1038,6 @@ input[type=submit]:hover {
     height: 30px;
 }
 
-
 #componentUpload label {
     padding: 5px;
 }
@@ -1045,6 +1048,12 @@ input[type=submit]:hover {
 
 #componentUpload th {
     padding: 8px;
+}
+
+#componentUpload input[type=submit] {
+    font-size: 12px;
+    width: 150px;
+    height: 30px;
 }
 
 #componentUpload textarea {
@@ -1060,9 +1069,6 @@ input[type=submit]:hover {
     width: 600px;
     height: 30px;
 }
-
-
-
 
 #map img {
     width: 300px;
